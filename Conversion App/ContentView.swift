@@ -21,20 +21,21 @@ struct ContentView: View {
     
     @State private var volumeUnit: String = "liters"
     
-    @State private var timeUnit: String = "seconds"
+    
+    
+    @State private var timeUnit: TimerConverter.timeType = .seconds
+    @State private var outputUnit: TimerConverter.timeType = .seconds
     
     
     // Unit input
     @State private var unit: Double = 0.0
     // Result
-    @State private var result: Double = 0.0
-    
-    // Unit converted
+//    @State private var result: Double = 0.0
     
     
     var body: some View {
         NavigationStack {
-            
+    
             
             Form {
                 //Time conversion: users choose seconds, minutes, hours, or days.
@@ -42,17 +43,31 @@ struct ContentView: View {
                     TextField("Unit: ", value: $unit, format: .number)
                         .keyboardType(.numberPad)
                     Picker("Time unit", selection: $timeUnit){
-                        ForEach(timeUnits, id:\.self) { timeUnit in
-                            Text(timeUnit)
+                        ForEach(TimerConverter.timeType.allCases, id:\.self) { unit in
+                            Text(unit.rawValue)
                         }
                     }
                     
                 }
-
+                Section("Output time conversion"){
+                    Picker("Time unit", selection: $outputUnit){
+                        ForEach(TimerConverter.timeType.allCases, id:\.self) { outputUnit in
+                            Text(outputUnit.rawValue)
+                        }
+                    }
+                    .pickerStyle(.palette)
+                    let converter = TimerConverter(unit: unit, inputUnit: timeUnit, outputUnit: outputUnit)
+                    Text("Converted result is: \(converter.conversionTime, specifier: "%.2f") \(outputUnit.rawValue)")
+                    
+                    
+                }
             // Temperature conversion: users choose Celsius, Fahrenheit, or Kelvin.
 
                 Section("Temperature Conversion"){
-                    
+        
+                        TextField("Unit: ", value: $unit, format: .number)
+                            .keyboardType(.numberPad)
+                        
                     Picker("Temperature unit: ", selection: $temperature) {
                         ForEach(temperatures, id: \.self) { temperature in
                             Text(temperature)

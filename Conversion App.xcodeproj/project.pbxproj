@@ -14,6 +14,7 @@
 		889EF5802C98A90100313E72 /* Conversion_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889EF57F2C98A90100313E72 /* Conversion_AppTests.swift */; };
 		889EF58A2C98A90100313E72 /* Conversion_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889EF5892C98A90100313E72 /* Conversion_AppUITests.swift */; };
 		889EF58C2C98A90100313E72 /* Conversion_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889EF58B2C98A90100313E72 /* Conversion_AppUITestsLaunchTests.swift */; };
+		88A811202C98D9F800C1B749 /* TimerConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A8111F2C98D9F800C1B749 /* TimerConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		889EF5852C98A90100313E72 /* Conversion AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Conversion AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		889EF5892C98A90100313E72 /* Conversion_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion_AppUITests.swift; sourceTree = "<group>"; };
 		889EF58B2C98A90100313E72 /* Conversion_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		88A8111F2C98D9F800C1B749 /* TimerConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				889EF5702C98A8FF00313E72 /* ContentView.swift */,
 				889EF5722C98A90100313E72 /* Assets.xcassets */,
 				889EF5742C98A90100313E72 /* Preview Content */,
+				88A8111F2C98D9F800C1B749 /* TimerConverter.swift */,
 			);
 			path = "Conversion App";
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A811202C98D9F800C1B749 /* TimerConverter.swift in Sources */,
 				889EF5712C98A8FF00313E72 /* ContentView.swift in Sources */,
 				889EF56F2C98A8FF00313E72 /* Conversion_App.swift in Sources */,
 			);
