@@ -18,11 +18,16 @@ struct ContentView: View {
     
     @State private var temperature: String = "Celsius"
     @State private var lengthUnit: String = "meters"
-    @State private var timeUnit: String = "seconds"
+    
     @State private var volumeUnit: String = "liters"
     
-    // Amount input
+    @State private var timeUnit: String = "seconds"
+    
+    
+    // Unit input
     @State private var unit: Double = 0.0
+    // Result
+    @State private var result: Double = 0.0
     
     // Unit converted
     
