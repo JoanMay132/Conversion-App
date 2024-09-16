@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		889EF56F2C98A8FF00313E72 /* Conversion_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889EF56E2C98A8FF00313E72 /* Conversion_AppApp.swift */; };
+		889EF56F2C98A8FF00313E72 /* Conversion_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889EF56E2C98A8FF00313E72 /* Conversion_App.swift */; };
 		889EF5712C98A8FF00313E72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889EF5702C98A8FF00313E72 /* ContentView.swift */; };
 		889EF5732C98A90100313E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889EF5722C98A90100313E72 /* Assets.xcassets */; };
 		889EF5762C98A90100313E72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889EF5752C98A90100313E72 /* Preview Assets.xcassets */; };
@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		889EF56B2C98A8FF00313E72 /* Conversion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Conversion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		889EF56E2C98A8FF00313E72 /* Conversion_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion_AppApp.swift; sourceTree = "<group>"; };
+		889EF56E2C98A8FF00313E72 /* Conversion_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion_App.swift; sourceTree = "<group>"; };
 		889EF5702C98A8FF00313E72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		889EF5722C98A90100313E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		889EF5752C98A90100313E72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		889EF56D2C98A8FF00313E72 /* Conversion App */ = {
 			isa = PBXGroup;
 			children = (
-				889EF56E2C98A8FF00313E72 /* Conversion_AppApp.swift */,
+				889EF56E2C98A8FF00313E72 /* Conversion_App.swift */,
 				889EF5702C98A8FF00313E72 /* ContentView.swift */,
 				889EF5722C98A90100313E72 /* Assets.xcassets */,
 				889EF5742C98A90100313E72 /* Preview Content */,
@@ -258,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				889EF5712C98A8FF00313E72 /* ContentView.swift in Sources */,
-				889EF56F2C98A8FF00313E72 /* Conversion_AppApp.swift in Sources */,
+				889EF56F2C98A8FF00313E72 /* Conversion_App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
