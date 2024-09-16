@@ -31,24 +31,26 @@ struct ContentView: View {
     @State private var temperatureInput: TemperatureConverter.temperatureType = .Celsius
     @State private var temperatureOut: TemperatureConverter.temperatureType = .Celsius
     
-    // Result
-//    @State private var result: Double = 0.0
+    // Button Done
+    @FocusState private var doneButton: Bool
     
     
     var body: some View {
         NavigationStack {
-    
+            
             
             Form {
                 //Time conversion: users choose seconds, minutes, hours, or days.
                 Section("Time conversion"){
                     TextField("Unit: ", value: $unitTimer, format: .number)
                         .keyboardType(.numberPad)
+                        .focused($doneButton)
                     Picker("Time unit", selection: $timeUnit){
                         ForEach(TimerConverter.timeType.allCases, id:\.self) { unit in
                             Text(unit.rawValue)
                         }
                     }
+                    
                     
                 }
                 Section("Output time conversion"){
@@ -60,15 +62,16 @@ struct ContentView: View {
                     .pickerStyle(.palette)
                     let converter = TimerConverter(unitTimer: unitTimer, inputUnit: timeUnit, outputUnit: outputUnit)
                     Text("Converted result is: \(converter.conversionTime, specifier: "%.2f") \(outputUnit.rawValue)")
-        
+                    
                 }
-            // Temperature conversion: users choose Celsius, Fahrenheit, or Kelvin.
-
+                // Temperature conversion: users choose Celsius, Fahrenheit, or Kelvin.
+                
                 Section("Temperature Conversion"){
-        
-                        TextField("Unit: ", value: $unitTemperature, format: .number)
-                            .keyboardType(.numberPad)
-                        
+                    
+                    TextField("Unit: ", value: $unitTemperature, format: .number)
+                        .keyboardType(.numberPad)
+                        .focused($doneButton)
+                    
                     Picker("Temperature unit: ", selection: $temperatureInput) {
                         ForEach(TemperatureConverter.temperatureType.allCases, id: \.self) { unitTemperature in
                             Text(unitTemperature.rawValue)
@@ -105,8 +108,14 @@ struct ContentView: View {
                     }
                 }
             }
-      
+            
             .navigationTitle("Convert your Units")
+            .toolbar{
+                if doneButton {
+                    Button("Done"){
+                        doneButton = false}
+                }
+            }
         }
     
     }
