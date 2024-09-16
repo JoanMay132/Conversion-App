@@ -16,7 +16,7 @@ struct TimerConverter {
         case days = "days"
     }
 
-    let unit: Double
+    let unitTimer: Double
     let inputUnit: timeType
     let outputUnit: timeType
 
@@ -24,13 +24,13 @@ struct TimerConverter {
         let inputInSeconds: Double
         switch inputUnit {
         case .seconds:
-            inputInSeconds = unit
+            inputInSeconds = unitTimer
         case .minutes:
-            inputInSeconds = unit * 60
+            inputInSeconds = unitTimer * 60
         case .hours:
-            inputInSeconds = unit * 3600
+            inputInSeconds = unitTimer * 3600
         case .days:
-            inputInSeconds = unit * 86400
+            inputInSeconds = unitTimer * 86400
         }
 
         switch outputUnit {

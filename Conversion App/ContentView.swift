@@ -28,7 +28,7 @@ struct ContentView: View {
     
     
     // Unit input
-    @State private var unit: Double = 0.0
+    @State private var unitTimer: Double = 0.0
     // Result
 //    @State private var result: Double = 0.0
     
@@ -40,7 +40,7 @@ struct ContentView: View {
             Form {
                 //Time conversion: users choose seconds, minutes, hours, or days.
                 Section("Time conversion"){
-                    TextField("Unit: ", value: $unit, format: .number)
+                    TextField("Unit: ", value: $unitTimer, format: .number)
                         .keyboardType(.numberPad)
                     Picker("Time unit", selection: $timeUnit){
                         ForEach(TimerConverter.timeType.allCases, id:\.self) { unit in
@@ -56,7 +56,7 @@ struct ContentView: View {
                         }
                     }
                     .pickerStyle(.palette)
-                    let converter = TimerConverter(unit: unit, inputUnit: timeUnit, outputUnit: outputUnit)
+                    let converter = TimerConverter(unitTimer: unitTimer, inputUnit: timeUnit, outputUnit: outputUnit)
                     Text("Converted result is: \(converter.conversionTime, specifier: "%.2f") \(outputUnit.rawValue)")
                     
                     
@@ -65,7 +65,7 @@ struct ContentView: View {
 
                 Section("Temperature Conversion"){
         
-                        TextField("Unit: ", value: $unit, format: .number)
+                        TextField("Unit: ", value: $unitTimer, format: .number)
                             .keyboardType(.numberPad)
                         
                     Picker("Temperature unit: ", selection: $temperature) {
