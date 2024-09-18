@@ -9,11 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
-    // Lists of all units
-    let lengthUnits: [String] = ["meters", "kilometers", "feet","yards","miles"]
-    let volumeUnits: [String] = ["mililiters", "liters", "cups", "pits","gallons"]
-    
+
     @State private var temperature: String = "Celsius"
     @State private var lengthUnit: String = "meters"
     
@@ -29,8 +25,16 @@ struct ContentView: View {
     // Unit Temperature Input
     @State private var unitTemperature: Double = 0.0
     @State private var temperatureInput: TemperatureConverter.temperatureType = .Celsius
-    @State private var temperatureOut: TemperatureConverter.temperatureType = .Celsius
+    @State private var temperatureOut: TemperatureConverter.temperatureType = .Celsius    
+    // Unit Temperature Input
+    @State private var unitLength: Double = 0.0
+    @State private var lenghtInput: LengthConverter.lengthType = .meters
+    @State private var lenghtOut: LengthConverter.lengthType = .meters
     
+    // Unit VOLUME Input
+    @State private var unitVolume: Double = 0.0
+    @State private var volumeInput: VolumeConverter.volumeType = .liters
+    @State private var volumeOut: VolumeConverter.volumeType = .liters
     // Button Done
     @FocusState private var doneButton: Bool
     
@@ -41,7 +45,7 @@ struct ContentView: View {
             
             Form {
                 //Time conversion: users choose seconds, minutes, hours, or days.
-                Section("Time conversion"){
+                Section(header: Text("Time Conversion").bold()){
                     TextField("Unit: ", value: $unitTimer, format: .number)
                         .keyboardType(.numberPad)
                         .focused($doneButton)
@@ -91,21 +95,45 @@ struct ContentView: View {
                 
                 // Length conversion: users choose meters, kilometers, feet, yards, miles.
                 Section("Length conversion") {
-                    Picker("Length Unit: ",selection: $lengthUnit) {
-                        ForEach(lengthUnits, id: \.self) { lengthUnit in
-                            Text(lengthUnit)
+                    TextField("Unit: ", value: $unitLength, format: .number)
+                        .keyboardType(.numberPad)
+                        .focused($doneButton)
+                    Picker("Length Unit: ",selection: $lenghtInput) {
+                        ForEach(LengthConverter.lengthType.allCases, id: \.self) { unitLenght in
+                            Text(unitLenght.rawValue)
+                        }
+                    }
+                }
+                // Output length unit conversion
+                Section("Output length conversion"){
+                    Picker("Select a unit to convert", selection: $lenghtOut){
+                        ForEach(LengthConverter.lengthType.allCases, id: \.self) { lengthOut in
+                            Text(lengthOut.rawValue)}
+                    }
+                    let lengthConverter = LengthConverter(unitLength: unitLength, lenghtInput: lenghtInput, lenghtOut: lenghtOut)
+                    Text("\(lengthConverter.conversionLength, specifier: "%.2f") \(lenghtOut.rawValue)")
+                }
+                
+                // Volume conversion: users choose milliliters, liters, cups, pints, or gallons.
+                Section("Volume conversion"){
+                    TextField("Unit", value: $unitVolume, format: .number)
+                        .keyboardType(.numberPad)
+                        .focused($doneButton)
+                    Picker("Volume unit", selection: $volumeInput){
+                        ForEach(VolumeConverter.volumeType.allCases, id:\.self) { unitVolume in
+                            Text(unitVolume.rawValue)
                         }
                     }
                 }
                 
-                
-                // Volume conversion: users choose milliliters, liters, cups, pints, or gallons.
-                Section("Volume conversion"){
-                    Picker("Volume unit", selection: $volumeUnit){
-                        ForEach(volumeUnits, id:\.self) { volumeUnit in
-                            Text(volumeUnit)
-                        }
+                // Output volume unit conversion
+                Section("Output volume conversion"){
+                    Picker("Select a unit to convert", selection: $volumeOut){
+                        ForEach(VolumeConverter.volumeType.allCases, id: \.self) { volumeOut in
+                            Text(volumeOut.rawValue)}
                     }
+                    let volumeConverter = VolumeConverter(unitVolume: unitVolume, volumeInput: volumeInput, volumeOutput: volumeOut)
+                    Text("\(volumeConverter.conversionVolume, specifier: "%.2f") \(volumeOut.rawValue)")
                 }
             }
             

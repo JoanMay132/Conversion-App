@@ -20,8 +20,10 @@ struct TemperatureConverter{
     let temperatureOut: temperatureType
     
     var conversionTemperature: Double {
+        
         let inputinCelsius : Double
         let resultTemperature: Double
+        
         switch temperatureInput {
         case .Celsius:
             inputinCelsius = unitTemperature
